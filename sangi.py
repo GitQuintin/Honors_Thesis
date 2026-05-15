@@ -115,21 +115,6 @@ class equation_system():
                         process = False # Stop the while loop if the user does not want to guess again
                         found_root = True # Set to True to exit the outer while loop
 
-
-            #     # After the for loop finishes, stop the while loop
-            #     process = False
-
-            # # Final feedback outside the loop
-            # if found_root:
-            #     print("Root successfully detected!")
-            # else:
-            #     print("The guessed root was incorrect.")
-            #     process = False # Ensure the loop is stopped if the root was not found
-            #     found_root = True # Reset for the next iteration if needed
-
-
-
-
     def __str__(self):
 
         out = ""
@@ -165,8 +150,6 @@ class equation_system():
         else:
             degree = (len(self.coefficients)-2)  # Subtract one more to account for the ANS row that is not shifted  
         
-        #shifter = 10 ** (shift_amount-1)
-        #degrees = self.rows - 2
         # Shift the coefficients to the right increasingly to the specified amount, filling in zeros as needed
         shifted_matrix = []
         for i in range(len(self.matrix)-1, -1, -1):
@@ -188,7 +171,6 @@ class equation_system():
     
     def reverse_shift(self):
 
-        #degrees = self.rows - 1 
         degree = len(self.coefficients) - 2
         # Shift the coefficients to the left increasingly to the specified amount, filling in zeros as needed
         shifted_matrix = []
@@ -278,53 +260,6 @@ class equation_system():
                 strMatrix.append("0" * (self.columns - (len(str(abs(coefficients[i]))))) + "-" + "-".join(str(abs(coefficients[i]))))
             else:
                 strMatrix.append("0" * (self.columns - (len(str(coefficients[i])))) + str(coefficients[i]))
-
-            # if coefficients[i] < 0:
-            #     coefficients[i] = abs(coefficients[i])
-            #     #Start negative, rest are attached with join
-            #     if coefficients[i] < 10:
-            #         table += "0" * (self.columns-1) + "-" + "-".join(str(coefficients[i]))
-            #         strMatrix.append("0" * (self.columns-1) + "-" + "-".join(str(coefficients[i])))
-            #     elif coefficients[i] < 100:
-            #         table += "0" * (self.columns-2) + "-" + "-".join(str(coefficients[i]))
-            #         strMatrix.append("0" * (self.columns-2) + "-" + "-".join(str(coefficients[i])))
-            #     elif coefficients[i] < 1000:
-            #         table += "0" * (self.columns-3) + "-" + "-".join(str(coefficients[i]))
-            #         strMatrix.append("0" * (self.columns-3) + "-" + "-".join(str(coefficients[i])))
-            #     elif coefficients[i] < 10000:
-            #         table += "0" * (self.columns-4) + "-" + "-".join(str(coefficients[i]))
-            #         strMatrix.append("0" * (self.columns-4) + "-" + "-".join(str(coefficients[i])))
-            #     elif coefficients[i] < 100000:
-            #         table += "0" * (self.columns-5) + "-" + "-".join(str(coefficients[i]))
-            #         strMatrix.append("0" * (self.columns-5) + "-" + "-".join(str(coefficients[i])))
-            #     elif coefficients[i] < 1000000:
-            #         table += "0" * (self.columns-6) + "-" + "-".join(str(coefficients[i]))
-            #         strMatrix.append("0" * (self.columns-6) + "-" + "-".join(str(coefficients[i])))
-            #     else:
-            #         table += "-" + "-".join(str(coefficients[i]))
-            #         strMatrix.append("-" + "-".join(str(coefficients[i])))
-            #     continue
-            # if abs(coefficients[i]) < 10:
-            #     table += "0" * (self.columns-1) + str(coefficients[i])
-            #     strMatrix.append("0" * (self.columns-1) + str(coefficients[i]))
-            # elif abs(coefficients[i]) < 100:
-            #     table += "0" * (self.columns-2) + str(coefficients[i])
-            #     strMatrix.append("0" * (self.columns-2) + str(coefficients[i]))
-            # elif abs(coefficients[i]) < 1000:
-            #     table += "0" * (self.columns-3) + str(coefficients[i])
-            #     strMatrix.append("0" * (self.columns-3) + str(coefficients[i]))
-            # elif abs(coefficients[i]) < 10000:
-            #     table += "0" * (self.columns-4) + str(coefficients[i])
-            #     strMatrix.append("0" * (self.columns-4) + str(coefficients[i]))
-            # elif abs(coefficients[i]) < 100000:
-            #     table += "0" * (self.columns-5) + str(coefficients[i])
-            #     strMatrix.append("0" * (self.columns-5) + str(coefficients[i]))
-            # elif abs(coefficients[i]) < 1000000:
-            #     table += "0" * (self.columns-6) + str(coefficients[i])
-            #     strMatrix.append("0" * (self.columns-6) + str(coefficients[i]))
-            # else:
-            #     table += str(coefficients[i])
-            #     strMatrix.append(str(coefficients[i]))
 
         intMatrix = []
 
